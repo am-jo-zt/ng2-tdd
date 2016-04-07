@@ -10,7 +10,7 @@
     "postinstall": "typings install",
     "build.dev": "gulp build.dev",
     "clean.dev": "gulp clean.dev",
-    "karma.start": "karma start karma.conf.js"
+    "karma.start": "karma start"
   },
   "license": "MIT",
   "dependencies": {

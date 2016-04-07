@@ -24,7 +24,7 @@ module.exports = function(config) {
       {pattern: 'karma-test-shim.js', included: true, watched: true},
 
       // paths loaded via module imports
-      {pattern: 'dist/dev/**/*.js', included: false, watched: true},
+      {pattern: 'dist/**/*.js', included: false, watched: true},
 
       // paths to support debugging with source maps in dev tools
       {pattern: 'src/**/*.ts', included: false, watched: false},
