@@ -36,7 +36,6 @@ gulp.task('build.js.dev', () => {
 	let src = [
 		'typings/browser.d.ts',
 		join(APP_SRC, '**/*.ts'),
-    '!' + join(APP_SRC, '**/*.spec.ts'),
     '!' + join(APP_SRC, '**/*.e2e.ts')
 	];
 	let result =  gulp.src(src)
@@ -45,7 +44,7 @@ gulp.task('build.js.dev', () => {
     .pipe(plugins.typescript(tsProject));
 
   return result.js
-    .pipe(plugins.sourcemaps.write())
+    .pipe(plugins.sourcemaps.write('.'))
     .pipe(gulp.dest(APP_DEST));
 });
 

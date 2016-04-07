@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: '.',
 
 
     // frameworks to use
@@ -24,23 +24,20 @@ module.exports = function(config) {
       {pattern: 'karma-test-shim.js', included: true, watched: true},
 
       // paths loaded via module imports
-      {pattern: 'dist/**/*.js', included: false, watched: true},
+      {pattern: 'dist/dev/**/*.js', included: false, watched: true},
 
       // paths to support debugging with source maps in dev tools
       {pattern: 'src/**/*.ts', included: false, watched: false},
       {pattern: 'dist/**/*.js.map', included: false, watched: false}
     ],
 
+    proxies: {
+			
+		},
 
     // list of files to exclude
     exclude: [
     ],
-
-    // proxied base paths
-    proxies: {
-      // required for component assests fetched by Angular's compiler
-      '/src/': '/base/src/'
-    },
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
