@@ -32,7 +32,7 @@ module.exports = function(config) {
     ],
 
     proxies: {
-			
+
 		},
 
     // list of files to exclude
