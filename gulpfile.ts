@@ -9,6 +9,7 @@ import * as gulpLoadPlugins from 'gulp-load-plugins';
 
 const plugins = <any>gulpLoadPlugins();
 
+// TODO: split task in diff. files
 gulp.task('default', () => {
 	console.log('Hello world!');
 });
@@ -37,6 +38,7 @@ gulp.task('build.js.dev', () => {
 		'typings/browser.d.ts',
 		join(APP_SRC, '**/*.ts'),
     '!' + join(APP_SRC, '**/*.e2e.ts')
+		//'!' + join(APP_SRC, '**/*.spec.ts')
 	];
 	let result =  gulp.src(src)
 		.pipe(plugins.plumber())

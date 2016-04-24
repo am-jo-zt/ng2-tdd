@@ -1,6 +1,4 @@
 // Karma configuration
-// Generated on Sat Mar 26 2016 00:07:21 GMT+0100 (CET)
-
 module.exports = function(config) {
   config.set({
 
@@ -15,24 +13,28 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      //
+      //{pattern: 'node_modules/es6-shim/es6-shim.js', included: true, watched: false},
+      //{pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: true, watched: false},
+      //{pattern: 'node_modules/angular2/es6/dev/src/testing/shims_for_IE.js', included: true, watched: false},
       // paths loaded by Karma
-      {pattern: 'node_modules/angular2/bundles/angular2-polyfills.js', included: true, watched: true},
-      {pattern: 'node_modules/systemjs/dist/system.src.js', included: true, watched: true},
-      {pattern: 'node_modules/rxjs/bundles/Rx.js', included: true, watched: true},
-      {pattern: 'node_modules/angular2/bundles/angular2.dev.js', included: true, watched: true},
-      {pattern: 'node_modules/angular2/bundles/testing.dev.js', included: true, watched: true},
-      {pattern: 'karma-test-shim.js', included: true, watched: true},
-
+      {pattern: 'node_modules/angular2/bundles/angular2-polyfills.js', included: true, watched: false},
+      {pattern: 'node_modules/systemjs/dist/system.src.js', included: true, watched: false},
+      {pattern: 'node_modules/rxjs/bundles/Rx.js', included: true, watched: false},
+      {pattern: 'node_modules/angular2/bundles/angular2.dev.js', included: true, watched: false},
+      {pattern: 'node_modules/angular2/bundles/testing.dev.js', included: true, watched: false},
+      'karma-test-shim.js',
       // paths loaded via module imports
-      {pattern: 'dist/**/*.js', included: false, watched: true},
+      {pattern: 'dist/dev/**/*.js', included: false, watched: true},
+      {pattern: 'dist/dev/**/*.html', included: false, watched: true},
 
       // paths to support debugging with source maps in dev tools
       {pattern: 'src/**/*.ts', included: false, watched: false},
-      {pattern: 'dist/**/*.js.map', included: false, watched: false}
+      {pattern: 'dist/dev/**/*.js.map', included: false, watched: false}
     ],
 
     proxies: {
-
+      '/dist/': '/base/dist/'
 		},
 
     // list of files to exclude
@@ -53,7 +55,7 @@ module.exports = function(config) {
 
     coverageReporter: {
       reporters:[
-        {type: 'json', subdir: '.', file: 'coverage-final.json'}
+        {type: 'html', subdir: '.', file: 'coverage-final.html'}
       ]
     },
 
@@ -67,7 +69,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
 
     // enable / disable watching file and executing tests whenever any file changes

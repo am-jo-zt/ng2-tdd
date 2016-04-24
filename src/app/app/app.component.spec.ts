@@ -1,13 +1,18 @@
-import {describe} from 'angular2/testing';
+import {
+  describe,
+  beforeEachProviders,
+  it,
+  expect,
+  inject
+} from 'angular2/testing';
 import {AppComponent} from './app.component';
 
 describe('AppComponent', () => {
+  beforeEachProviders(() => [
+    AppComponent
+  ]);
 
-  beforeEach(function() {
-    this.app = new AppComponent();
-  });
-
-  it('first test', function() {
-    expect(this.app).toBeUndefined;
-  });
+  it('should exist', inject([AppComponent], (appComponent:AppComponent) => {
+          expect(appComponent).toBeDefined();
+  }));
 });
