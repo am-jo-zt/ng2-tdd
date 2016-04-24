@@ -3,7 +3,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '.',
+    basePath: '',
 
 
     // frameworks to use
@@ -25,16 +25,16 @@ module.exports = function(config) {
       {pattern: 'node_modules/angular2/bundles/testing.dev.js', included: true, watched: false},
       'karma-test-shim.js',
       // paths loaded via module imports
-      {pattern: 'dist/dev/**/*.js', included: false, watched: true},
-      {pattern: 'dist/dev/**/*.html', included: false, watched: true},
+      {pattern: 'dist/dev/app/**/*.js', included: false, watched: true},
+      {pattern: 'dist/dev/app/*.html', included: false, watched: true},
 
       // paths to support debugging with source maps in dev tools
-      {pattern: 'src/**/*.ts', included: false, watched: false},
-      {pattern: 'dist/dev/**/*.js.map', included: false, watched: false}
+      {pattern: 'src/app/**/*.ts', included: false, watched: false},
+      {pattern: 'dist/dev/app/**/*.js.map', included: false, watched: false}
     ],
 
     proxies: {
-      '/dist/': '/base/dist/'
+      '/dist/dev/app/': '/base/dist/dev/app/'
 		},
 
     // list of files to exclude
