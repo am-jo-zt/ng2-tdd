@@ -12,9 +12,8 @@ export class geoLocationService {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            let geolocation: GeoLocation = {lat: position.coords.longitude,
-                                            lon: position.coords.latitude};
-            console.log(geolocation);
+            let geolocation: GeoLocation = {lat: position.coords.latitude,
+              lon: position.coords.longitude};
             observer.next(geolocation);
             observer.complete();
           },
@@ -22,16 +21,16 @@ export class geoLocationService {
             let errorMsg = 'An unknown error occurred.';
             switch(error.code) {
               case error.PERMISSION_DENIED:
-                errorMsg = "User denied the request for Geolocation."
+                errorMsg = 'User denied the request for Geolocation.'
                 break;
               case error.POSITION_UNAVAILABLE:
-                errorMsg = "Location information is unavailable."
+                errorMsg = 'Location information is unavailable.'
                 break;
               case error.TIMEOUT:
-                errorMsg = "The request to get user location timed out."
+                errorMsg = 'The request to get user location timed out.'
                 break;
             }
-            console.error(errorMsg);
+            observer.error(errorMsg);
           },
           this.options);
       }
