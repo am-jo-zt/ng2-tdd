@@ -3,5 +3,5 @@
   "files": [
     "**/*.{html, js, css}"
   ],
-  "server": { "baseDir": "./dist/dev/" }
+  "server": { "baseDir": "./dist/dev" }
 }
