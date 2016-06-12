@@ -1,4 +1,4 @@
-import { Component, OnInit } from 'angular2/core';
+import { Component, OnInit } from '@angular/core';
 import { geoLocationService } from './geolocation.service';
 import { GeoLocation } from './geolocation.interface';
 
