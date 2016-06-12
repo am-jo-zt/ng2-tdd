@@ -16,7 +16,8 @@
     "noImplicitReturns": false,
     "noImplicitUseStrict": false,
     "noFallthroughCasesInSwitch": true,
-    "outDir": "dist/dev"
+    "outDir": "dist/dev",
+    "noResolve": true
   },
   "exclude": [
     "node_modules",
