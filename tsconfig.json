@@ -10,10 +10,11 @@
     "noImplicitAny": false
   },
   "exclude": [
-   "node_modules",
-   "dist",
-   "gulpfile.ts",
-   "typings/main.d.ts",
-   "typings/main"
- ]
+    "node_modules",
+    "gulpfile.ts",
+    "tools",
+    "typings/main.d.ts",
+    "typings/main"
+  ],
+  "compileOnSave": false
 }
