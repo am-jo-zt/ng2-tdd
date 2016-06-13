@@ -1,4 +1,4 @@
-import { Injectable } from 'angular2/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { GeoLocation} from './geolocation.interface';
 
@@ -33,12 +33,12 @@ export class geoLocationService {
             observer.error(errorMsg);
           },
           this.options);
-      }
+      };
     });
   };
   options = {
     enableHighAccuracy: true,
-    timeout: 1000000,
+    timeout: 20000,
     maximumAge: 0
   };
 }

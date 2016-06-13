@@ -1,4 +1,4 @@
-import { Component, OnInit } from 'angular2/core';
+import { Component, OnInit } from '@angular/core';
 import { geoLocationService } from './geolocation.service';
 import { GeoLocation } from './geolocation.interface';
 
@@ -8,16 +8,17 @@ import { GeoLocation } from './geolocation.interface';
   //TODO: use a html file
   template: `
     <div *ngIf="geoloc && !error" class="alert-box success">
-      <p>lat: {{ geoloc.lat | number:'2.1-6' }} lon: {{ geoloc.lon | number:'2.1-6' }}</p>
+      <span>success: </span>lat: {{ geoloc.lat | number:'2.1-6' }} lon: {{ geoloc.lon | number:'2.1-6' }}
     </div>
     <div *ngIf="!geoloc && !error" class="alert-box notice">
-      <p>scanning....</p>
+      <span>notice: </span>scanning....
     </div>
     <div *ngIf="error" class="alert-box error">
-      <p>{{ error }}</p>
+      <span>error: </span> {{ error }}
     </div>`,
   //TODO: use a css file
   styles: ['.alert-box { border-radius:10px; padding:10px; margin:10px;}',
+    '.alert-box span { font-weight:bold; text-transform:uppercase; }',
     '.notice { border:1px solid; }',
     '.error { border:1px solid; }',
     '.success { border:1px solid; }']

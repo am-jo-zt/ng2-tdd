@@ -1,7 +1,5 @@
 {
   "port": 8000,
-  "files": [
-    "**/*.{html, js, css}"
-  ],
-  "server": { "baseDir": "./dist/dev/" }
+  "files": ["./**/*.{html,htm,css,js}", "systemjs.config.js"],
+  "server": { "baseDir": "./" }
 }
