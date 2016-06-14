@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { GeolocationComponent } from './geolocation.component';
+import { NavComponent,  GeolocationComponent} from './shared/index';
 
 @Component({
   selector: 'my-app',
-  directives: [GeolocationComponent],
-  template: '<h1>My First Angular 2 App</h1><my-geolocation></my-geolocation>'
+  directives: [NavComponent, GeolocationComponent],
+  template: '<h1>My First Angular 2 App</h1><navbar></navbar><my-geolocation></my-geolocation>'
 })
 export class AppComponent {
 
