@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'navbar',
   template: '<h1>navbar</h1>'
 })
-export class NavComponent {
+export class NavbarComponent {
 
   constructor() {}
 }

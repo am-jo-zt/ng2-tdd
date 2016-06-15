@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { NavComponent,  GeolocationComponent} from './shared/index';
+import { NavbarComponent,  GeolocationComponent} from './shared/index';
 
 @Component({
   selector: 'my-app',
-  directives: [NavComponent, GeolocationComponent],
+  directives: [NavbarComponent, GeolocationComponent],
   template: `
     <navbar></navbar>
     <h1>My First Angular 2 App</h1>

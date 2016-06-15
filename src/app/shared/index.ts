@@ -1,2 +1,2 @@
 export * from './geolocation/index';
-export * from './nav/index'
+export * from './navbar/index'
