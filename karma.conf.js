@@ -3,7 +3,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: './',
 
 
     // frameworks to use
@@ -13,26 +13,33 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      //
-      //{pattern: 'node_modules/es6-shim/es6-shim.js', included: true, watched: false},
-      //{pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: true, watched: false},
-      //{pattern: 'node_modules/angular2/es6/dev/src/testing/shims_for_IE.js', included: true, watched: false},
-      // paths loaded by Karma
-      {pattern: 'node_modules/angular2/bundles/angular2-polyfills.js', included: true, watched: false},
-      {pattern: 'node_modules/systemjs/dist/system.src.js', included: true, watched: false},
-      {pattern: 'node_modules/rxjs/bundles/Rx.js', included: true, watched: false},
-      {pattern: 'node_modules/angular2/bundles/angular2.dev.js', included: true, watched: false},
-      {pattern: 'node_modules/angular2/bundles/testing.dev.js', included: true, watched: false},
-      'karma-test-shim.js',
+      // Polyfills.
+      'node_modules/core-js/client/shim.min.js',
+
+      // System.js for module loading
+      'node_modules/systemjs/dist/system-polyfills.js',
+      'node_modules/systemjs/dist/system.src.js',
+
+      // Zone.js dependencies
+      'node_modules/zone.js/dist/zone.js',
+      'node_modules/zone.js/dist/jasmine-patch.js',
+      'node_modules/zone.js/dist/async-test.js',
+      'node_modules/zone.js/dist/fake-async-test.js',
+
+      // RxJs.
+      { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
+      { pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false },
+
       // paths loaded via module imports
-      {pattern: 'dist/dev/app/**/*.js', included: false, watched: true},
-      {pattern: 'dist/dev/app/*.html', included: false, watched: true},
+      // Angular itself
+      { pattern: 'node_modules/@angular/**/*.js', included: false, watched: true },
 
-      // paths to support debugging with source maps in dev tools
-      {pattern: 'src/app/**/*.ts', included: false, watched: false},
-      {pattern: 'dist/dev/app/**/*.js.map', included: false, watched: false}
+      { pattern: 'dist/dev/**/*.js', included: false, watched: true },
+      { pattern: 'dist/dev/**/*.html', included: false, watched: true, served: true },
+      { pattern: 'dist/dev/**/*.css', included: false, watched: true, served: true },
+      { pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false }, // PhantomJS2 (and possibly others) might require it
+      'test-main.js'
     ],
-
     proxies: {
       '/dist/dev/app/': '/base/dist/dev/app/'
 		},
