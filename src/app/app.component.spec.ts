@@ -13,12 +13,11 @@ main test fuction for app.component
 */
 export function main() {
     describe('App component', () => {
-        it('should build', injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) =>{
+        it('should build and have headline', injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) =>{
             return tcb.createAsync(TestComponent)
                 .then(fixture => {
                     let el = fixture.debugElement.children[0].nativeElement;
-
-                    expect(el.innerHTML).toBe('My First Angular 2 App');
+                    expect(el.querySelector('h1').textContent).toBe('My First Angular 2 App');
                 })
         }));
     });
