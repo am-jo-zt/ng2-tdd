@@ -58,14 +58,23 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'coverage', 'karma-remap-istanbul'],
 
     coverageReporter: {
-      reporters:[
-        {type: 'html', subdir: '.', file: 'coverage-final.html'}
-      ]
+      reporters: [{
+        type: 'json',
+        subdir: '.',
+        file: 'coverage-final.json'
+      }]
     },
-
+    remapIstanbulReporter: {
+      src: 'coverage/coverage-final.json',
+      reports: {
+        html: 'coverage'
+      },
+      timeoutNotCreated: 1000,
+      timeoutNoMoreFiles: 1000
+    },
     // web server port
     port: 9876,
 
@@ -76,7 +85,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DISABLE,
 
 
     // enable / disable watching file and executing tests whenever any file changes
@@ -85,7 +94,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS', 'Chrome'],
 
 
     // Continuous Integration mode
@@ -94,6 +103,6 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity,
+    concurrency: Infinity
   });
 };

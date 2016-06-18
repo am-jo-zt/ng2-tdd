@@ -18,7 +18,7 @@ export function main() {
                 .then(fixture => {
                     let el = fixture.debugElement.children[0].nativeElement;
                     expect(el.querySelector('h1').textContent).toBe('My First Angular 2 App');
-                })
+                });
         }));
     });
 }
