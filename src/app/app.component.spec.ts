@@ -1,36 +1,37 @@
 import { TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 import { AppComponent } from './app.component';
 import {
-  async,
-  inject,
-  describe,
-  it,
-  expect
+    inject,
+    describe,
+    it,
+    expect,
+    beforeEach,
+    beforeEachProviders, injectAsync
 } from '@angular/core/testing';
 
 /**
 main test fuction for app.component
 */
 export function main() {
-  describe('App component', () => {
-    it('should build without a problem',
-      async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
-        tcb.createAsync(TestComponent)
-          .then((fixture) => {
-            console.log(fixture.nativeElement.innerText);
-            //expect(fixture.nativeElement.innerText.indexOf('HOME')).toBeTruthy();
-          });
-    })));
-  });
+    describe('App component', () => {
+        it('should build', injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) =>{
+            return tcb.createAsync(TestComponent)
+                .then(fixture => {
+                    let el = fixture.debugElement.children[0].nativeElement;
+
+                    expect(el.querySelector('h1').textContent).toEquals('My First Angular 2 App');
+                })
+                .catch(e => {});
+        }));
+    });
 }
 
-/**
-holed the component to test
-*/
 @Component({
-  selector: 'test-cmp',
-  template: 'my-app',
-  directives: [AppComponent]
+    selector: 'test-cmp',
+    template: `
+        <my-app></my-app>
+    `,
+    directives: [AppComponent]
 })
 class TestComponent {}
