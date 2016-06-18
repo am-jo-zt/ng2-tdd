@@ -2,12 +2,10 @@ import { TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core'
 import { AppComponent } from './app.component';
 import {
-    inject,
     describe,
     it,
     expect,
-    beforeEach,
-    beforeEachProviders, injectAsync
+    injectAsync
 } from '@angular/core/testing';
 
 /**
@@ -20,18 +18,17 @@ export function main() {
                 .then(fixture => {
                     let el = fixture.debugElement.children[0].nativeElement;
 
-                    expect(el.querySelector('h1').textContent).toEquals('My First Angular 2 App');
+                    expect(el.innerHTML).toBe('My First Angular 2 App');
                 })
-                .catch(e => {});
         }));
     });
 }
 
 @Component({
     selector: 'test-cmp',
+    directives: [AppComponent],
     template: `
         <my-app></my-app>
-    `,
-    directives: [AppComponent]
+    `
 })
 class TestComponent {}
