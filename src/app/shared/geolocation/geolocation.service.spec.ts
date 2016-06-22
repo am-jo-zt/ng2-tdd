@@ -22,7 +22,7 @@ export function main() {
             service = _service;
         }));
 
-        it('shoud create service', () => {
+        it('should create service', () => {
             expect(service).toBeDefined();
         });
     });
