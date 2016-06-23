@@ -32,8 +32,8 @@ export class GeolocationComponent implements OnInit {
 
   getGeoLoc() {
     this._location.getGeoLoc().subscribe(geoloc => this.geoloc = geoloc,
-      error => this.error = error,
-      () => console.info('geoloc scanning done'));
+                                         error => this.error = error,
+                                         () => console.info('geoloc scanning done'));
   }
 
   ngOnInit() {

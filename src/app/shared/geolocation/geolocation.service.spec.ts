@@ -4,26 +4,29 @@ import {
     it,
     beforeEachProviders,
     beforeEach,
-    inject,
-    expect
+    injectAsync
 } from '@angular/core/testing';
 
 export function main() {
     describe('GeoLocation Service', () => {
-        let service:geoLocationService;
+        let service;
 
+        // setup
         beforeEachProviders(() => {
             return [
                 geoLocationService
             ]
         });
 
-        beforeEach(inject([geoLocationService], (_service) => {
+        beforeEach(injectAsync([geoLocationService], (_service) => {
             service = _service;
         }));
 
+        // spec
         it('should create service', () => {
-            expect(service).toBeDefined();
+            service.getGeoLoc().subscribe(
+                (data) => { console.log(data); },
+                (error) => { console.log(error) });
         });
     });
 }
