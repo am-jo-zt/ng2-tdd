@@ -1,7 +1,7 @@
 import { geoLocationService } from './geolocation.service';
 import {
     describe,
-    xit,
+    it,
     beforeEachProviders,
     beforeEach,
     inject
@@ -24,12 +24,12 @@ export function main() {
 
         // specs
         //Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.
-        xit('should create service', done => {
+        it('should create service', done => {
             service.getGeoLoc().subscribe(
                 x => {
                     console.log(x);
-                },
-                done()
+                    done();
+                }
             );
         });
     });
